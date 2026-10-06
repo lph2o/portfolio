@@ -32,7 +32,7 @@ export function NotFoundContent() {
   return <section className="container not-found"><span className="eyebrow">{t.eyebrow}</span><h1>{t.title}<br /><em>{t.emphasis}</em></h1><p>{t.description}</p><ButtonLink href="/projects">{t.cta}</ButtonLink></section>;
 }
 
-export function ProjectDetailContent({ slug }: { slug: "hikma" | "content-factory" | "msda" }) {
+export function ProjectDetailContent({ slug }: { slug: import("@/data/projects").ProjectSlug }) {
   const { dictionary, locale, project: getCopy } = useDictionary();
   const base = projects.find((item) => item.slug === slug)!;
   const project = getCopy(slug);

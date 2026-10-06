@@ -1,4 +1,4 @@
-export type ProjectSlug = "hikma" | "content-factory" | "msda";
+export type ProjectSlug = "hikma" | "content-factory" | "msda" | "melrose-palace";
 export type CaseSection = { title: string; text: string };
 export type Project = {
   slug: ProjectSlug;
@@ -82,6 +82,24 @@ export const projects: Project[] = [
     ],
     currentState: "Capture, qualification, persistence, signed dispatch and action-state implementations were examined. The external n8n workflow was not available in this repository and its live operation was not verified.",
     limitations: ["Telegram, calendar and email automation are not presented as verified features.", "No conversion, revenue or test-pass-count claims are made.", "The architecture includes an external hand-off, not proof of a running external workflow."],
+  },
+  {
+    slug: "melrose-palace", index: "04", title: "Melrose Palace",
+    category: "Client website", description: "A conversion-focused property website for a Senegalese land investment project.",
+    summary: "A client-facing real-estate website presenting the Sébikhotane development, its 54 plots, location, financing options and contact journey.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"], status: "Public site", visibility: "Private source",
+    role: "Client website development", evidenceDate: "2026-10-06", live: "https://melrose-palace-v2.vercel.app/",
+    challenge: "A property offer needs to make a complex decision feel clear: explain the location, establish trust, show the project and give a prospective buyer a direct path to a conversation.",
+    approach: "Structure the experience as a guided narrative: project overview, trust and documentation, location, financing simulator, progressive packages and direct contact.",
+    architecture: ["Project narrative", "Plot visualisation", "Financing simulator", "Contact journey"],
+    features: ["Sébikhotane project presentation", "54-plot aerial and boundary visualisation", "Location and proximity information", "Installment financing simulator", "Progressive land-to-construction packages", "Advisor contact and WhatsApp journey"],
+    decisions: [
+      { title: "Lead with clarity", text: "The page introduces the project, the offer and the key decision points before asking a visitor to make contact." },
+      { title: "Make trust visible", text: "Ownership, documentation, boundaries and administrative support are presented as part of the buying experience rather than hidden in a footer." },
+      { title: "Connect information to action", text: "Location, payment examples and package options lead naturally toward a conversation with an advisor." },
+    ],
+    currentState: "The public Melrose Palace V2 site was reviewed on 6 October 2026. The review covered its public narrative, project information, financing simulator, package presentation and contact journey; private CRM or operational workflows were not assessed.",
+    limitations: ["No claim is made about sales, conversion rate or customer outcomes.", "The portfolio entry describes the public site experience and does not present private business processes as verified."],
   },
 ];
 

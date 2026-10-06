@@ -3,7 +3,7 @@
 import type { ProjectSlug } from "@/data/projects";
 import { useDictionary } from "@/components/i18n/use-dictionary";
 
-const visualTitle: Record<ProjectSlug, string> = { hikma: "حكمة", "content-factory": "01 → 02 → 03", msda: "Signal / action" };
+const visualTitle: Record<ProjectSlug, string> = { hikma: "حكمة", "content-factory": "01 → 02 → 03", msda: "Signal / action", "melrose-palace": "LAND / TRUST / ACTION" };
 export function ProjectArt({ slug, large = false }: { slug: ProjectSlug; large?: boolean }) {
   const { project } = useDictionary();
   const copy = project(slug);
