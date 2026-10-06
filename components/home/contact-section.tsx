@@ -1,7 +1,8 @@
+"use client";
 import { ButtonLink } from "@/components/ui/button";
+import { useDictionary } from "@/components/i18n/use-dictionary";
 export function ContactSection() {
-  return <section className="contact-section"><div className="container contact-inner">
-    <div><span className="eyebrow">The next conversation</span><h2>Good ideas deserve<br /><em>good execution.</em></h2></div>
-    <div className="contact-side"><p>A product to build, a system to connect, or a useful problem to solve.</p><ButtonLink href="/contact">Get in touch</ButtonLink></div>
-  </div></section>;
+  const { dictionary } = useDictionary();
+  const text = dictionary.contact;
+  return <section className="contact-section"><div className="container contact-inner"><div><span className="eyebrow">{text.eyebrow}</span><h2>{text.title}<br /><em>{text.emphasis}</em></h2></div><div className="contact-side"><p>{text.description}</p><ButtonLink href="/contact">{text.cta}</ButtonLink></div></div></section>;
 }

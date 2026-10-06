@@ -4,30 +4,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
-
-const links = [{ href: "/projects", label: "Work" }, { href: "/about", label: "About" }, { href: "/contact", label: "Contact" }];
-export function Header() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState(false);
-  return (
-    <header className="site-header">
-      <div className="container header-inner">
-        <Link href="/" className="wordmark" aria-label={`${profile.name}, home`}>
-          <span className="monogram">at<span>.</span></span>
-          <span className="wordmark-name">Abdourahmane<br /><strong>Thiam</strong></span>
-        </Link>
-        <nav aria-label="Main navigation" className="desktop-nav">
-          {links.map(({ href, label }) => <Link key={href} href={href} aria-current={pathname.startsWith(href) ? "page" : undefined}>{label}</Link>)}
-          <a className="github-nav" href={profile.github} target="_blank" rel="noreferrer noopener">GitHub <ArrowUpRight size={14} aria-hidden="true" /></a>
-        </nav>
-        <button className="menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>
-          {open ? <X size={23} aria-hidden="true" /> : <Menu size={23} aria-hidden="true" />}
-        </button>
-      </div>
-      {open && <nav id="mobile-navigation" className="mobile-nav container" aria-label="Mobile navigation">
-        {links.map(({ href, label }) => <Link key={href} href={href} aria-current={pathname.startsWith(href) ? "page" : undefined} onClick={() => setOpen(false)}>{label}<ArrowUpRight size={18} aria-hidden="true" /></Link>)}
-        <a href={profile.github} target="_blank" rel="noreferrer noopener" onClick={() => setOpen(false)}>GitHub<ArrowUpRight size={18} aria-hidden="true" /></a>
-      </nav>}
-    </header>
-  );
-}
+import { LanguageSwitcher } from "@/components/i18n/language-switcher";
+import { ThemeToggle } from "@/components/home/felt-portfolio";
+import { useDictionary } from "@/components/i18n/use-dictionary";
+export function Header() { const pathname = usePathname(); const [open, setOpen] = useState(false); const { dictionary, locale } = useDictionary(); const links = pathname === "/" ? [{ href: "#approach", label: locale === "fr" ? "Approche" : locale === "it" ? "Approccio" : "Approach" }, { href: "#work", label: dictionary.nav.work }, { href: "#about", label: dictionary.nav.about }, { href: "#contact", label: dictionary.nav.contact }] : [{ href: "/", label: dictionary.nav.home }, { href: "/projects", label: dictionary.nav.work }, { href: "/about", label: dictionary.nav.about }, { href: "/contact", label: dictionary.nav.contact }]; return <header className="felt-header"><div className="felt-container header-inner"><Link href="/" className="felt-wordmark" aria-label={`${profile.name}, ${dictionary.nav.home}`}><strong>at<span>.</span></strong><span>{profile.name}</span></Link><nav className="desktop-nav" aria-label="Main navigation">{links.map(({ href, label }) => <Link key={href} href={href}>{label}</Link>)}<a href={`mailto:${profile.email}`} className="header-email">{dictionary.nav.contact}<ArrowUpRight size={14} /></a><LanguageSwitcher /><ThemeToggle /></nav><button className="menu-toggle" aria-label={open ? "Close navigation" : "Open navigation"} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X size={22} /> : <Menu size={22} />}</button></div>{open && <nav className="mobile-nav felt-container" aria-label="Mobile navigation">{links.map(({ href, label }) => <Link key={href} href={href} onClick={() => setOpen(false)}>{label}<ArrowUpRight size={17} /></Link>)}<a href={`mailto:${profile.email}`}>Email<ArrowUpRight size={17} /></a><div className="mobile-controls"><LanguageSwitcher /><ThemeToggle /></div></nav>}</header>; }
