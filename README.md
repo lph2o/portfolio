@@ -77,4 +77,4 @@ No project license has been selected by the owner. Public visibility does not gr
 Third-party dependencies retain their own licences. No private-project source or assets are copied here.
 
 ## Mascot attribution
-The fox sprite sheets in `public/mascot/` come from [nilbuild/page-mascot](https://github.com/nilbuild/page-mascot), released under the MIT License. The original project and its license are retained as the source reference for these assets.
+The portfolio now uses four original AI-generated felt mascot poses in `public/mascot/`: wave, code, point and phone. They were generated specifically for this portfolio and do not reuse third-party character artwork.

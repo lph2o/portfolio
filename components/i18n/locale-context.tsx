@@ -3,13 +3,13 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 export type Locale = "en" | "fr" | "it";
-const LocaleContext = createContext<{ locale: Locale; setLocale: (locale: Locale) => void }>({ locale: "en", setLocale: () => undefined });
+const LocaleContext = createContext<{ locale: Locale; setLocale: (locale: Locale) => void }>({ locale: "fr", setLocale: () => undefined });
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
-    if (typeof window === "undefined") return "en";
+    if (typeof window === "undefined") return "fr";
     const saved = window.localStorage.getItem("portfolio-locale");
-    return saved === "en" || saved === "fr" || saved === "it" ? saved : "en";
+    return saved === "en" || saved === "fr" ? saved : "en";
   });
   useEffect(() => {
     document.documentElement.lang = locale;

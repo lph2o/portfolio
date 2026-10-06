@@ -20,5 +20,5 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f5f3ee" };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><LocaleProvider><MetadataSync /><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main" tabIndex={-1}>{children}</main><Footer /></LocaleProvider></body></html>;
+  return <html lang="fr"><body><LocaleProvider><MetadataSync /><a className="skip-link" href="#main">Aller au contenu</a><Header /><main id="main" tabIndex={-1}>{children}</main><Footer /></LocaleProvider></body></html>;
 }
