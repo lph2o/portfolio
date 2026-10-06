@@ -21,7 +21,7 @@ export default function Home() {
       <div className="hero-right"><ProductMap /><div className="hero-note"><span>DESIGN → CODE → CONNECTION</span><span>One connected practice.</span></div></div>
     </section>
     <section className="work-section container" id="selected-work" aria-labelledby="selected-title">
-      <div className="section-heading"><div><span className="eyebrow">01 / Selected work</span><h2 id="selected-title">Different problems.<br />The same product mindset.</h2></div><p>Learning, media production and lead acquisition. Three ways of connecting an experience to the system behind it.</p></div>
+      <div className="section-heading"><div><span className="eyebrow">01 / Selected work</span><h2 id="selected-title">Selected work<br /><em>with a clear point of view.</em></h2></div><p>Three products, systems and interfaces designed to make complex work feel simple.</p></div>
       <div className="project-list">{projects.map((project) => <ProjectRow key={project.slug} project={project} />)}</div>
     </section>
     <section className="practice-section"><div className="container">
