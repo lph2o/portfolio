@@ -9,7 +9,7 @@ export function LocaleProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(() => {
     if (typeof window === "undefined") return "fr";
     const saved = window.localStorage.getItem("portfolio-locale");
-    return saved === "en" || saved === "fr" ? saved : "en";
+    return saved === "en" || saved === "fr" || saved === "it" ? saved : "fr";
   });
   useEffect(() => {
     document.documentElement.lang = locale;
