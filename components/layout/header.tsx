@@ -5,15 +5,17 @@ import { useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
 import { LanguageSwitcher } from "@/components/i18n/language-switcher";
+import { useDictionary } from "@/components/i18n/use-dictionary";
 
-const links = [{ href: "/projects", label: "Work" }, { href: "/about", label: "About" }, { href: "/contact", label: "Contact" }];
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { dictionary } = useDictionary();
+  const links = [{ href: "/projects", label: dictionary.nav.work }, { href: "/about", label: dictionary.nav.about }, { href: "/contact", label: dictionary.nav.contact }];
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="wordmark" aria-label={`${profile.name}, home`}>
+        <Link href="/" className="wordmark" aria-label={`${profile.name}, ${dictionary.nav.home}`}>
           <span className="monogram">at<span>.</span></span>
           <span className="wordmark-name">Abdourahmane<br /><strong>Thiam</strong></span>
         </Link>
