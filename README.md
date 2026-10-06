@@ -11,6 +11,8 @@ Three evidence-based case studies: Hikma, Content Factory and MSDA Lead Engine.
 - Open Graph / Twitter image, favicon, page metadata, sitemap and robots.
 - No fabricated outcomes, employers, education or contact information.
 - No private code, internal data or unnecessary tracking.
+- Lightweight 3D depth, pointer-aware motion and an interactive fox mascot.
+- Persistent EN / FR / IT language switcher for the primary portfolio experience.
 
 ## Tech stack
 Next.js 16 App Router, React 19, strict TypeScript, Tailwind CSS 4, Lucide icons.
@@ -73,3 +75,6 @@ Do not turn the source audit into unsupported claims about production usage.
 ## License
 No project license has been selected by the owner. Public visibility does not grant a reuse license.
 Third-party dependencies retain their own licences. No private-project source or assets are copied here.
+
+## Mascot attribution
+The fox sprite sheets in `public/mascot/` come from [nilbuild/page-mascot](https://github.com/nilbuild/page-mascot), released under the MIT License. The original project and its license are retained as the source reference for these assets.

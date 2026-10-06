@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { ProductMap } from "@/components/home/product-map";
 import { ContactSection } from "@/components/home/contact-section";
 import { ProjectRow } from "@/components/projects/project-row";
-import { ButtonLink } from "@/components/ui/button";
+import { HeroCopy } from "@/components/home/hero-copy";
 import { projects } from "@/data/projects";
 import { skillGroups } from "@/data/skills";
 
@@ -17,14 +17,8 @@ const method = [
 export default function Home() {
   return <>
     <section className="hero container">
-      <div className="hero-copy">
-        <div className="eyebrow"><span className="accent-dot" />Product Engineer / Full-Stack Developer</div>
-        <h1>Good products.<br /><em>Thoughtfully</em><br className="hero-mobile-break" /> built<span className="accent-period">.</span></h1>
-        <p className="hero-description">I&apos;m Abdourahmane. I bring design, development and automation together — turning ideas into useful digital products.</p>
-        <div className="hero-actions"><ButtonLink href="/projects">Explore my work</ButtonLink><ButtonLink href="/about" variant="quiet">A little about me</ButtonLink></div>
-      </div>
+      <HeroCopy />
       <div className="hero-right"><ProductMap /><div className="hero-note"><span>DESIGN → CODE → CONNECTION</span><span>One connected practice.</span></div></div>
-      <div className="hero-baseline"><span>Design-minded. Systems-driven.</span><a href="#selected-work">A closer look at the work<ArrowDownRight size={18} aria-hidden="true" /></a></div>
     </section>
     <section className="work-section container" id="selected-work" aria-labelledby="selected-title">
       <div className="section-heading"><div><span className="eyebrow">01 / Selected work</span><h2 id="selected-title">Different problems.<br />The same product mindset.</h2></div><p>Learning, media production and lead acquisition. Three ways of connecting an experience to the system behind it.</p></div>

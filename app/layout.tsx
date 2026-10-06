@@ -4,6 +4,7 @@ import "@fontsource-variable/noto-naskh-arabic";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { LocaleProvider } from "@/components/i18n/locale-context";
 import { profile } from "@/data/profile";
 import { configuredSiteUrl } from "@/lib/seo";
 
@@ -18,5 +19,5 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f5f3ee" };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main" tabIndex={-1}>{children}</main><Footer /></body></html>;
+  return <html lang="en"><body><LocaleProvider><a className="skip-link" href="#main">Skip to content</a><Header /><main id="main" tabIndex={-1}>{children}</main><Footer /></LocaleProvider></body></html>;
 }

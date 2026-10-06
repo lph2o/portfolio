@@ -495,3 +495,36 @@ em { font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
 .contact-side p, .contact-channel p, .contact-pending p { font-size: 13px; }
 .feature-list li { font-size: 13px; }
 .evidence-note p, .evidence-note li { font-size: 12px; }
+
+/* Motion layer: lightweight, accessible 3D depth without a WebGL dependency. */
+.language-switcher { display: inline-flex; align-items: center; gap: 3px; margin-left: 18px; padding: 3px; border: 1px solid var(--border); border-radius: 999px; }
+.language-switcher button { border: 0; background: transparent; color: var(--muted); padding: 5px 6px; border-radius: 999px; font-size: 8px; font-weight: 700; letter-spacing: .08em; }
+.language-switcher button:hover, .language-switcher button.is-active { background: var(--ink); color: var(--paper); }
+.mobile-nav .language-switcher { width: max-content; margin: 8px 0 0; }
+.hero { perspective: 1200px; }
+.hero-right { grid-column: 2; grid-row: 1; }
+.product-map { transform: rotateX(1.5deg) rotateY(-2deg); box-shadow: 18px 22px 0 rgba(54, 64, 41, .05); transition: transform .4s ease, box-shadow .4s ease; animation: map-float 7s ease-in-out infinite; }
+.product-map:hover { transform: rotateX(0) rotateY(0) translateY(-5px); box-shadow: 24px 28px 0 rgba(54, 64, 41, .07); }
+.hero-baseline { grid-row: 2; }
+.hero-copy { animation: reveal-up .7s cubic-bezier(.2,.8,.2,1) both; }
+.hero-right { animation: reveal-up .8s .1s cubic-bezier(.2,.8,.2,1) both; }
+.project-row { transition: transform .35s ease; }
+.project-row:hover { transform: translateX(6px); }
+.project-art { transition: transform .35s ease, box-shadow .35s ease; }
+.project-visual-link:hover .project-art { transform: translateY(-5px) rotate(-.5deg); box-shadow: 14px 16px 0 rgba(38, 40, 34, .06); }
+.mascot { position: absolute; z-index: 4; right: -18px; bottom: 62px; width: 132px; height: 150px; border: 0; padding: 0; background: transparent; filter: drop-shadow(0 12px 8px rgba(38,40,34,.12)); }
+.mascot-sprite { position: absolute; inset: 0 0 16px; background-image: url('/mascot/fox-directions.png'); background-repeat: no-repeat; background-size: 300% 300%; image-rendering: auto; transition: background-position .16s ease; }
+.mascot-center-center { background-position: 50% 50%; }
+.mascot-up-left { background-position: 0% 0%; }.mascot-up-center { background-position: 50% 0%; }.mascot-up-right { background-position: 100% 0%; }
+.mascot-center-left { background-position: 0% 50%; }.mascot-center-right { background-position: 100% 50%; }
+.mascot-down-left { background-position: 0% 100%; }.mascot-down-center { background-position: 50% 100%; }.mascot-down-right { background-position: 100% 100%; }
+.mascot-shadow { position: absolute; left: 28px; right: 28px; bottom: 12px; height: 10px; background: rgba(38,40,34,.15); border-radius: 50%; filter: blur(5px); }
+.mascot-hint { position: absolute; right: 4px; top: 0; padding: 5px 7px; border: 1px solid rgba(38,40,34,.14); background: rgba(245,243,238,.78); color: var(--muted); font-size: 8px; letter-spacing: .06em; text-transform: uppercase; opacity: 0; transform: translateY(4px); transition: opacity .2s, transform .2s; }
+.mascot:hover .mascot-hint, .mascot:focus-visible .mascot-hint { opacity: 1; transform: translateY(0); }
+.mascot.is-reacting .mascot-sprite { background-image: url('/mascot/fox-reactions.png'); animation: mascot-bounce .9s steps(3) both; }
+@keyframes reveal-up { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes map-float { 0%,100% { translate: 0 0; } 50% { translate: 0 -4px; } }
+@keyframes mascot-bounce { 0%,100% { transform: translateY(0); } 35% { transform: translateY(-10px) rotate(-3deg); } 70% { transform: translateY(0) rotate(3deg); } }
+@media (max-width: 780px) { .hero-right { grid-column: 1; grid-row: auto; } .mascot { right: -15px; bottom: 55px; transform: scale(.8); transform-origin: bottom right; } .language-switcher { margin-left: 0; } }
+@media (max-width: 560px) { .mascot { right: -8px; bottom: 59px; transform: scale(.67); } .mascot-hint { display: none; } .hero-baseline { grid-row: auto; } }
+@media (prefers-reduced-motion: reduce) { .product-map, .hero-copy, .hero-right { animation: none; } .mascot { display: none; } }
